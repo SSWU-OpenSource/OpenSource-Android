@@ -7,4 +7,14 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <!--opensource-->
+    <color name="sswu_grey_1">#f2f5f5</color>
+    <color name="sswu_grey_3">#e2e4e6</color>
+    <color name="sswu_grey_4">#cfd3d6</color>
+    <color name="sswu_grey_5">#aaafb3</color>
+    <color name="sswu_grey_6">#888d91</color>
+    <color name="sswu_grey_7">#4e5256</color>
+    <color name="sswu_grey_9">#292a2b</color>
+    <color name="sswu_grey_8">#373a3c</color>
+    <color name="sswu_grey_2">#ebeeef</color>
 </resources>
