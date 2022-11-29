@@ -10,7 +10,7 @@ import com.subeenie.opensource_android.databinding.FragmentMypageBinding
 import com.subeenie.opensource_android.util.BaseFragment
 
 
-class MypageFragment : BaseFragment<FragmentMypageBinding>(R.layout.fragment_search) {
+class MypageFragment : BaseFragment<FragmentMypageBinding>(R.layout.fragment_mypage) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
