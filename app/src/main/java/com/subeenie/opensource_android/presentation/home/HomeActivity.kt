@@ -1,5 +1,6 @@
 package com.subeenie.opensource_android.presentation.home
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,6 +8,7 @@ import com.subeenie.opensource_android.R
 import com.subeenie.opensource_android.databinding.ActivityHomeBinding
 import com.subeenie.opensource_android.presentation.mypage.MypageFragment
 import com.subeenie.opensource_android.presentation.search.SearchFragment
+import com.subeenie.opensource_android.presentation.write.WriteActivity
 
 class HomeActivity : AppCompatActivity() {
     private val homeFragment by lazy { HomeFragment() }
@@ -20,6 +22,14 @@ class HomeActivity : AppCompatActivity() {
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
         initTransactionEvent()
+        gotoWrite()
+    }
+
+    private fun gotoWrite() {
+        binding.fabAddWrite.setOnClickListener {
+            val intent = Intent(this, WriteActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun initTransactionEvent() {
