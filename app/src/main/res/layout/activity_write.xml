@@ -33,7 +33,7 @@
 
 
         <View
-            android:id="@+id/line1"
+            android:id="@+id/view_toolbar"
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="@color/sswu_grey_5"
@@ -54,10 +54,10 @@
             android:textColorHint="@color/sswu_grey_5"
             android:textFontWeight="500"
             android:textSize="20sp"
-            app:layout_constraintTop_toBottomOf="@id/line1" />
+            app:layout_constraintTop_toBottomOf="@id/view_toolbar" />
 
         <View
-            android:id="@+id/line3"
+            android:id="@+id/view_title"
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="@color/sswu_grey_3"
@@ -79,10 +79,10 @@
             android:textFontWeight="500"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/line3" />
+            app:layout_constraintTop_toBottomOf="@id/view_title" />
 
         <View
-            android:id="@+id/line4"
+            android:id="@+id/view_content"
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="@color/sswu_grey_3"
@@ -92,11 +92,11 @@
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_complete"
-            android:layout_marginBottom="30dp"
             android:layout_width="wrap_content"
-            android:textSize="20dp"
-            android:text="완료"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:text="완료"
+            android:textSize="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
