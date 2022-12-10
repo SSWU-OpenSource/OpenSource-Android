@@ -2,6 +2,7 @@ package com.subeenie.opensource_android.presentation.home
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +11,7 @@ import com.subeenie.opensource_android.R
 import com.subeenie.opensource_android.data.BoardData
 import com.subeenie.opensource_android.databinding.FragmentHomeBinding
 import com.subeenie.opensource_android.presentation.write.WriteActivity
+import com.subeenie.opensource_android.presentation.read.ReadActivity
 import com.subeenie.opensource_android.util.BaseFragment
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
@@ -26,7 +28,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
     private fun initAdapter() {
 
         boardAdapter = BoardAdapter {
-            val intent = Intent(activity, WriteActivity::class.java)
+            val intent = Intent(activity, ReadActivity::class.java)
             intent.apply {
                 intent.putExtra("id", it.id)
                 intent.putExtra("title", it.title)
