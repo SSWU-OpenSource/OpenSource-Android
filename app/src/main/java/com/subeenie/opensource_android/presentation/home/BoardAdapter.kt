@@ -7,10 +7,11 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.subeenie.opensource_android.data.BoardData
+import com.subeenie.opensource_android.data.remote.response.ResponseBoard
 import com.subeenie.opensource_android.databinding.ItemBoardListBinding
 
-class BoardAdapter(private val itemClick: (BoardData) -> (Unit)) :
-    ListAdapter<BoardData, BoardAdapter.BoardViewHolder>(DIFFUTIL) {
+class BoardAdapter(private val itemClick: (ResponseBoard.posts) -> (Unit)) :
+    ListAdapter<ResponseBoard.posts, BoardAdapter.BoardViewHolder>(DIFFUTIL) {
 
     private lateinit var itemClickListener: OnItemClickListener
 
@@ -27,9 +28,9 @@ class BoardAdapter(private val itemClick: (BoardData) -> (Unit)) :
 
     class BoardViewHolder(
         private val binding: ItemBoardListBinding,
-        private val itemClick: (BoardData) -> Unit
+        private val itemClick: (ResponseBoard.posts) -> Unit
     ) : RecyclerView.ViewHolder(binding.root) {
-        fun onBind(boardData: BoardData) {
+        fun onBind(boardData: ResponseBoard.posts) {
             binding.board = boardData
             binding.root.setOnClickListener {
                 itemClick(boardData)
@@ -38,17 +39,17 @@ class BoardAdapter(private val itemClick: (BoardData) -> (Unit)) :
     }
 
     companion object {
-        val DIFFUTIL = object : DiffUtil.ItemCallback<BoardData>() {
+        val DIFFUTIL = object : DiffUtil.ItemCallback<ResponseBoard.posts>() {
             override fun areItemsTheSame(
-                oldItem: BoardData,
-                newItem: BoardData
+                oldItem: ResponseBoard.posts,
+                newItem: ResponseBoard.posts
             ): Boolean {
                 return oldItem.id == newItem.id
             }
 
             override fun areContentsTheSame(
-                oldItem: BoardData,
-                newItem: BoardData
+                oldItem: ResponseBoard.posts,
+                newItem: ResponseBoard.posts
             ): Boolean {
                 return oldItem == newItem
             }
