@@ -10,46 +10,46 @@ import com.subeenie.opensource_android.data.BoardData
 import com.subeenie.opensource_android.data.remote.response.ResponseBoard
 import com.subeenie.opensource_android.databinding.ItemBoardListBinding
 
-class BoardAdapter(private val itemClick: (ResponseBoard.posts) -> (Unit)) :
-    ListAdapter<ResponseBoard.posts, BoardAdapter.BoardViewHolder>(DIFFUTIL) {
+class BoardAdapter :
+    ListAdapter<ResponseBoard.Data.Posts, BoardAdapter.BoardViewHolder>(DIFFUTIL) {
 
     private lateinit var itemClickListener: OnItemClickListener
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BoardViewHolder {
         val binding =
             ItemBoardListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return BoardViewHolder(binding, itemClick)
+        return BoardViewHolder(binding)
 
     }
 
     override fun onBindViewHolder(holder: BoardViewHolder, position: Int) {
         holder.onBind(currentList[position])
+        holder.itemView.setOnClickListener {
+            itemClickListener.onClick(it, position)
+        }
     }
 
     class BoardViewHolder(
         private val binding: ItemBoardListBinding,
-        private val itemClick: (ResponseBoard.posts) -> Unit
     ) : RecyclerView.ViewHolder(binding.root) {
-        fun onBind(boardData: ResponseBoard.posts) {
+        fun onBind(boardData: ResponseBoard.Data.Posts) {
+            //binding.tvTitle.text = boardData.title
             binding.board = boardData
-            binding.root.setOnClickListener {
-                itemClick(boardData)
-            }
         }
     }
 
     companion object {
-        val DIFFUTIL = object : DiffUtil.ItemCallback<ResponseBoard.posts>() {
+        val DIFFUTIL = object : DiffUtil.ItemCallback<ResponseBoard.Data.Posts>() {
             override fun areItemsTheSame(
-                oldItem: ResponseBoard.posts,
-                newItem: ResponseBoard.posts
+                oldItem: ResponseBoard.Data.Posts,
+                newItem: ResponseBoard.Data.Posts
             ): Boolean {
                 return oldItem.id == newItem.id
             }
 
             override fun areContentsTheSame(
-                oldItem: ResponseBoard.posts,
-                newItem: ResponseBoard.posts
+                oldItem: ResponseBoard.Data.Posts,
+                newItem: ResponseBoard.Data.Posts
             ): Boolean {
                 return oldItem == newItem
             }

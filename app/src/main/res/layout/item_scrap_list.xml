@@ -7,7 +7,7 @@
 
         <variable
             name="scrap"
-            type="com.subeenie.opensource_android.data.ScrapData" />
+            type="com.subeenie.opensource_android.data.remote.response.ResponseBoard.Data.Posts" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
