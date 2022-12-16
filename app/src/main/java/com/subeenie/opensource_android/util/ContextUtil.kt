@@ -15,6 +15,7 @@ fun <ResponseType> Call<ResponseType>.enqueueUtil(
             if (response.isSuccessful) {
                 onSuccess.invoke(response.body() ?: return)
             } else {
+                Log.e("response","$response")
                 onError?.invoke(response.code())
             }
         }
