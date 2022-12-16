@@ -12,8 +12,8 @@ import retrofit2.http.Path
 interface BoardService {
 
     // 전체 게시글 조회
-    //@GET("api/post")
-    // fun getPostInfo(): Call<List<ResponseBoard>>
+    @GET("api/post")
+    fun getPostInfo(): Call<ResponseBoard>
 
     //게시글 작성
     //@POST("api/post")
@@ -22,14 +22,14 @@ interface BoardService {
     //): Call<ResponseBoard>
 
     // 상세보기
-    /* @GET("api/post/{postId}")
+     @GET("api/post/{postId}")
      fun getReadInfo(
          @Path("postId") postId: Int
-     ): Call<ResponseDetail>*/
+     ): Call<ResponseBoard>
 
     //스크랩 게시글
-    //@GET("api/scrap")
-    // fun getScrapBoardInfo(): Call<List<ResponseBoard>>
+    @GET("api/scrap")
+    fun getScrapBoardInfo(): Call<ResponseBoard>
 
     //스크랩 하기
     //@POST("api/scrap")
@@ -38,10 +38,10 @@ interface BoardService {
     //): Call <ResponseScrap>
 
     //스크랩 여부
-    //@GET("api/scrap/{postId}")
-    // fun getScrapInfo(
-    //   @Path("postId") postId:Int
-    //   ): Call<List<ResponseScrap>>
+    @GET("api/scrap/{postId}")
+    fun getScrapInfo(
+        @Path("postId") postId: Int
+    ): Call<List<ResponseScrap>>
 
 
 }

@@ -3,12 +3,17 @@ package com.subeenie.opensource_android.data.remote.response
 data class ResponseBoard(
     val message: String,
     val status: Int,
-    val success: Boolean,
-    val data: posts
+    val data: Data
 ) {
-    data class posts(
-        val id: Int,
-        val title: String,
-        val content: String
-    )
+    data class Data(
+        val posts: List<Posts>
+    ) {
+        data class Posts(
+            val id: Int,
+            val title: String,
+            val content: String
+        )
+
+    }
+
 }
